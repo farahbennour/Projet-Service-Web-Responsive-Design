@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Default Layout</title>
+    <!-- Lien vers le fichier CSS Bootswatch -->
+    <link rel="stylesheet" th:href="@{/css/Litera.min.css}">
+</head>
+
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragment/headerLayout :: header(title=${title})}"></div>
+
+    <!-- Main Content -->
+    <div class="container" th:insert="~{::content}"></div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragment/footerLayout :: footer}"></div>
+</body>
+
+</html>

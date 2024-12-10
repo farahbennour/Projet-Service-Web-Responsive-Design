@@ -1,0 +1,254 @@
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+    background-color: #cce3f6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 3%;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+.notification-list {
+    list-style: none;
+    margin-right: 2%;
+}
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    background-color: #f2f8ff;
+}
+
+.notification-item:hover {
+    background-color: #ced4da;
+}
+
+.notification-content h3 {
+    color: #007bff;
+}
+
+.notification-content p {
+    margin: 5px 0;
+    color: #495057;
+}
+
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #dc3545;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .navbar .navbar-brand {
+      font-size: 1.25rem;
+    }
+    .container-fluid, .container1, .container2, body, .container3{
+      width: 750px;
+    }
+  
+    .navbar .navbar-nav .nav-link {
+      padding: 5px 10px;
+    }
+  
+    .form-inline {
+      display: block;
+      margin-top: 15px;
+    }
+  
+    .form-control {
+      margin-bottom: 10px;
+      
+   
+    }
+  }
+  .popup-notification {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+}
+
+.popup-notification i {
+    margin-right: 10px; 
+} */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  background-color: #cce3f6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 3% auto; /* Centrer la div */
+}
+
+h1 {
+  text-align: center;
+  color: #343a40;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin-right: 2%;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  background-color: #f2f8ff;
+  flex-wrap: wrap; /* Adaptation pour petits écrans */
+}
+
+.notification-item:hover {
+  background-color: #ced4da;
+}
+
+.notification-content h3 {
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.notification-content p {
+  margin: 5px 0;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #c82333;
+}
+
+/* Popup notification */
+.popup-notification {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Adaptation aux petits écrans */
+}
+
+.popup-notification i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  body {
+      margin: 0;
+  }
+
+  .container {
+      width: 90%;
+      margin: 3% auto;
+      padding: 15px;
+  }
+
+  .notification-item {
+      flex-direction: column; /* Stacking content on small screens */
+      align-items: flex-start;
+  }
+
+  .notification-content h3 {
+      font-size: 1rem;
+  }
+
+  .notification-content p {
+      font-size: 0.85rem;
+  }
+
+  .delete-btn {
+      align-self: flex-end;
+      font-size: 16px;
+  }
+
+  .popup-notification {
+      width: calc(100% - 20px);
+      bottom: 20px;
+      right: 10px;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+      width: 100%;
+      margin: 2% auto;
+      padding: 10px;
+  }
+
+  .notification-item {
+      padding: 10px;
+  }
+
+  .notification-content h3 {
+      font-size: 0.9rem;
+  }
+
+  .notification-content p {
+      font-size: 0.8rem;
+  }
+
+  .popup-notification {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+  }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Event Management</title>
+    <link rel="stylesheet" href="/css/Design.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a href="/dashboard" class="navbar-brand" style="padding-left: 1%;">Dashboard</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#demo" type="button" name="button"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="demo">
+        <ul class="navbar-nav">
+            <li class="navbar-item"><a href="/categoryForm" class="nav-link">Categories</a></li>
+            <li class="navbar-item"><a href="/eventForm" class="nav-link">Events</a></li>
+                <form action="/auth/logout" method="POST" style="display: inline;">
+                    <button type="submit" class="nav-link" style="background: none; border: none;">Log Out</button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+   
+    <h1>Event Management</h1>
+    
+        
+
+        <form th:action="@{/addEvent}" th:object="${event}" method="post" class="container1">
+            <div th:if="${param.success}" style="color: green;"class="alert alert-success">
+                Event registered successfully!
+            </div>
+    
+            <div th:if="${param.updated}" style="color: green;" class="alert alert-success">
+                Event updated successfully!
+            </div>
+    
+            <div th:if="${param.deleted}" style="color: green;" class="alert alert-success">
+                Event deleted successfully!
+            </div>
+            <label for="titre">Title</label>
+            <input type="text" id="titre" th:field="*{titre}" class="form-control" required>
+            <br>
+        
+            <label for="description">Description</label>
+            <input type="text" id="description" th:field="*{description}" class="form-control" required>
+            <br>
+        
+            <label for="dateEvent">Date</label>
+            <input type="text" id="dateEvent" th:field="*{dateEvent}" class="form-control" required>
+            <br>
+        
+            <label for="lieuEvent">Event Location</label>
+            <input type="text" id="lieuEvent" th:field="*{lieuEvent}" class="form-control" required>
+            <br>
+            
+            <label for="nbPlace">Number of places</label>
+            <input type="number" id="nbPlace" th:field="*{nbPlace}" class="form-control" required>
+            <br>
+        
+            <label for="cout">Price</label>
+            <input type="number" id="cout" th:field="*{cout}" step="0.01" class="form-control" required>
+            <br>
+            <label for="category">Category</label>
+            <select id="category" th:field="*{category}"  class="form-control" required>
+              <option value="" selected>-- Select Category --</option>
+              <option th:each="category : ${categories}" 
+                      th:value="${category.id}" 
+                      th:text="${category.namecat}"></option>
+            </select>
+            
+            <input type="hidden" th:field="*{id}"> 
+            
+            <button type="submit" class="btn btn-success">Register</button>
+            <button type="submit" th:formaction="@{/updateEvent}" formmethod="post" class="btn btn-light">Modify</button>
+            <button type="submit" th:formaction="@{/deleteEvent}" formmethod="post" class="btn btn-danger">Delete</button>
+
+        </form>
+        <hr>
+        
+        
+        <h2>All Events</h2>
+        <div class="container3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Places</th>
+                    <th>Cost</th>
+                    <th>Category</th> 
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="event : ${events}">
+                    <td th:text="${event.titre}"></td>
+                    <td th:text="${event.description}"></td>
+                    <td th:text="${event.dateEvent}"></td>
+                    <td th:text="${event.lieuEvent}"></td>
+                    <td th:text="${event.nbPlace}"></td>
+                    <td th:text="${event.cout}"></td>
+                    <td th:text="${event.category.namecat}"></td>
+
+                    <td>
+                        <button type="button" th:data-id="${event.id}" onclick="fillForm(this)" class="btn btn-warning">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+    
+        </table>
+    </div>
+        <script>
+          function fillForm(button) {
+            const eventId = button.getAttribute('data-id');
+            if (!eventId) {
+                console.error("No event ID found");
+                return;
+            }
+
+            fetch(`/event/getEventById?id=${encodeURIComponent(eventId)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(event => {
+                    if (!event) {
+                        console.error("Event data is null or undefined.");
+                        return;
+                    }
+
+                    document.getElementById('titre').value = event.titre || "";
+                    document.getElementById('description').value = event.description || "";
+                    document.getElementById('dateEvent').value = event.dateEvent || "";
+                    document.getElementById('lieuEvent').value = event.lieuEvent || "";
+                    document.getElementById('nbPlace').value = event.nbPlace || "";
+                    document.getElementById('cout').value = event.cout || "";
+                    document.getElementById('id').value = event.id || "";
+
+                    const categoryDropdown = document.getElementById('category');
+
+                    if (categoryDropdown == event.category.id) {
+                        const optionToSelect = [...categoryDropdown.options].find(
+                            option => option.value == event.category.id.toString()
+                        );
+                        if (optionToSelect) {
+                            optionToSelect.selected = true;
+                        } else {
+                            console.warn("Selected category option not found.");
+                        }
+                    }
+                  })
+                .catch(error => {
+                    console.error("There was a problem with the fetch operation:", error);
+                });
+          }
+        </script>   
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

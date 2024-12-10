@@ -1,0 +1,328 @@
+.container-fluid
+ {
+  width: 100%;
+  max-width: 100%;
+}
+.container1 {
+  width: 50%;
+  border: 5px solid #45b5c6;
+  border-style: ridge;
+  text-align: center;
+
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ background-color: #cce3f6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+ 
+  
+}
+.container2 {
+  width: 70%;
+  text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 1em;
+ 
+  
+}
+
+body {
+   
+  background-color: #ffffff; 
+    font-family: Arial, sans-serif;
+  }
+  
+ 
+  .form-inline {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    margin: 10px auto;
+    display: block; 
+  }
+ 
+  
+  
+  
+  label {
+    font-weight: bold;
+  }
+  
+  select.form-control {
+    background-color: #f8f9fa;
+    border-radius: 25px;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    width: 300px;
+    height: 40px; 
+    display: block; 
+    margin: 10px auto;
+  }
+  
+  input[type="date"].form-control {
+    background-color: #f8f9fa;
+    border-radius: 25px;
+  }
+  
+  
+
+  
+  /* Heading and Text Customization */
+  h5.h5 {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .text-muted {
+    color: #6c757d !important;
+  }
+  
+
+  
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .card .btn-info {
+    background-color: #34b3f1; /* Custom button for registration */
+    border-color: #34b3f1;
+  }
+  
+  .card .btn-info:hover {
+    background-color: #007bff; /* Change button color on hover */
+  }
+  
+  /* Empty Event Message */
+  div.th:if {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #dc3545; /* Red color for empty events message */
+  }
+  
+ 
+
+   
+  @media (max-width: 768px) {
+    .container1, .container2, .container3 {
+      width: 90%; /* Prend la majorité de l'espace disponible */
+    }
+    input, select {
+      max-width: 100%; /* Pas de limite rigide */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container1, .container2, .container3 {
+      width: 95%;
+      margin: 0 auto;
+    }
+    input, select {
+      max-width: 100%;
+    }
+  }
+   
+  input[type="text"], 
+  input[type="number"], 
+  input[type="password"], 
+  input[type="date"], 
+  input[type="email"], 
+  select.form-control {
+    width: 100%; /* S'adapte au parent */
+    max-width: 300px; /* Limite la largeur maximale */
+  }
+
+ 
+  .btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #4582ec;
+    --bs-btn-border-color: #4582ec;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #3b6fc9;
+    --bs-btn-hover-border-color: #3768bd;
+    --bs-btn-focus-shadow-rgb: 97, 149, 239;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #3768bd;
+    --bs-btn-active-border-color: #3462b1;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #4582ec;
+    --bs-btn-disabled-border-color: #4582ec;
+    /* /* margin-bottom: 1%; */
+    margin-top: 1%; 
+  }
+  
+  .btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #adb5bd;
+    --bs-btn-border-color: #adb5bd;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #939aa1;
+    --bs-btn-hover-border-color: #8a9197;
+    --bs-btn-focus-shadow-rgb: 185, 192, 199;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #8a9197;
+    --bs-btn-active-border-color: #82888e;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #adb5bd;
+    --bs-btn-disabled-border-color: #adb5bd;
+    /* margin-bottom: 1%; */
+    margin-top: 1%;
+  }
+  
+  .btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #02b875;
+    --bs-btn-border-color: #02b875;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #029c63;
+    --bs-btn-hover-border-color: #02935e;
+    --bs-btn-focus-shadow-rgb: 40, 195, 138;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #02935e;
+    --bs-btn-active-border-color: #028a58;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #02b875;
+    --bs-btn-disabled-border-color: #02b875;
+  
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
+  }
+  
+  .btn-info {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #17a2b8;
+    --bs-btn-border-color: #17a2b8;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #148a9c;
+    --bs-btn-hover-border-color: #128293;
+    --bs-btn-focus-shadow-rgb: 58, 176, 195;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #128293;
+    --bs-btn-active-border-color: #117a8a;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #17a2b8;
+    --bs-btn-disabled-border-color: #17a2b8;
+    margin-bottom: 1%;
+    margin-top: 1%;
+  }
+  
+  .btn-warning {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #f0ad4e;
+    --bs-btn-border-color: #f0ad4e;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #cc9342;
+    --bs-btn-hover-border-color: #c08a3e;
+    --bs-btn-focus-shadow-rgb: 242, 185, 105;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #c08a3e;
+    --bs-btn-active-border-color: #b4823b;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #f0ad4e;
+    --bs-btn-disabled-border-color: #f0ad4e;
+  }
+  
+  .btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #d9534f;
+    --bs-btn-border-color: #d9534f;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #b84743;
+    --bs-btn-hover-border-color: #ae423f;
+    --bs-btn-focus-shadow-rgb: 223, 109, 105;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ae423f;
+    --bs-btn-active-border-color: #a33e3b;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #d9534f;
+    --bs-btn-disabled-border-color: #d9534f;
+    margin-bottom: 1%;
+    margin-top: 1%;
+  }
+  
+  .btn-light {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #f8f9fa;
+    --bs-btn-border-color: #f8f9fa;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #d3d4d5;
+    --bs-btn-hover-border-color: #c6c7c8;
+    --bs-btn-focus-shadow-rgb: 211, 212, 213;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #c6c7c8;
+    --bs-btn-active-border-color: #babbbc;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #f8f9fa;
+    --bs-btn-disabled-border-color: #f8f9fa;
+  }
+  
+  .btn-dark {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #343a40;
+    --bs-btn-border-color: #343a40;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #52585d;
+    --bs-btn-hover-border-color: #484e53;
+    --bs-btn-focus-shadow-rgb: 82, 88, 93;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #5d6166;
+    --bs-btn-active-border-color: #484e53;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #343a40;
+    --bs-btn-disabled-border-color: #343a40;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de se réorganiser */
+    justify-content: center; /* Centre les éléments horizontalement */
+  }
+ .container3{
+  border: #45b5c6 5px solid; /* Bordure personnalisée */
+  border-style: ridge; /* Style de bordure */
+  margin-bottom: 2%; /* Espace en bas */
+  margin-top: 1%; /* Espace en haut */
+  border-radius: 10px; /* Coins arrondis */
+  margin-left: 1%; /* Marge à gauche */
+  margin-right: 1%; /* Marge à droite pour égalité */
+  width: 98%; /* Largeur ajustée à cause des marges */
+  overflow-x: auto; /* Active le défilement horizontal si le contenu déborde */
+  padding: 20px;
+ }
+
+ .container{
+  margin-top: 3%;
+ }
+h1,h2{
+  text-align: center;
+}
+  
